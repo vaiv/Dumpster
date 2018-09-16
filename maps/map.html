@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+
+var end;
+
+function calcRoute() {
+  var start = 'Johns Hopkins University, md';
+    // var end = '(39.320368,-76.625682), md';
+  var request = {
+    origin: start,
+    destination: end,
+    travelMode: 'DRIVING'
+  };
+  directionsService.route(request, function(result, status) {
+    if (status == 'OK') {
+      directionsDisplay.setDirections(result);
+    }
+  });
+}
+ 
+     function initMap() {
+ directionsService = new google.maps.DirectionsService();
+ directionsDisplay = new google.maps.DirectionsRenderer();
+  var chicago = new google.maps.LatLng(39.2904, -76.6122);
+  var mapOptions = {
+    zoom:12,
+    center: chicago
+  }
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  directionsDisplay.setMap(map);
+
+
+
+  // The location of Uluru
+  var can1 = {lat: 39.320368, lng: -76.625682};
+  var can2 = {lat: 39.341597, lng: -76.679893};
+  var can3 = {lat: 39.31474, lng: -76.545192};
+  var can4 = {lat: 39.207585, lng: -76.559133};
+  var can5 = {lat: 39.246893, lng: -76.617457};
+  var can6 = {lat: 39.342135, lng: -76.607970};
+  var can7 = {lat: 39.342102, lng: -76.607809};
+  var can8 = {lat: 39.292441, lng: -76.659753};
+
+  var cap1 = 10;
+  var cap2 = 10;
+  var cap3 = 90;
+  var cap4 = 20;
+  var cap5 = 50;
+  var cap6 = 40;
+  var cap7 = 70;
+  var cap8 = 50;
+ 
+
+  var image1;
+  var image2;
+  var image3;
+  var image4;
+  var image5;
+  var image6;
+  var image7;
+  var image8;
+
+
+  var bounce1=0;
+  var bounce2=0;
+  var bounce3=0;
+  var bounce4=0;
+  var bounce5=0;
+  var bounce6=0;
+  var bounce7=0;
+  var bounce8=0;
+
+
+  
+  var contentString1 = '2840 Sisson Street,';
+  var contentString2 = '5030 Reisterstown Road';
+  var contentString3 = '6101 Bowleys Lane,';
+  var contentString4 = '6100 Quarantine Road';
+  var contentString5 = '701 Reedbird Avenue';
+  var contentString6 = '4325 York Road';
+  var contentString7 = '4410 Lewin Avenue';
+  var contentString8 = '239 N. Calverton Road, ';
+
+  if (cap1>67)
+  {
+    image1 = {url: 'http://10.194.70.109:8000/pics/green.png',
+	       scaledSize: new google.maps.Size(35, 35)
+		};
+
+    bounce1 =1;
+  }
+
+  else if (cap1<=67 && cap1>33)
+  image1 = {url: 'http://10.194.70.109:8000/pics/blue.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+  else 
+  image1 = {url: 'http://10.194.70.109:8000/pics/red.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+
+
+
+    if (cap2>67)
+  {
+  image2 = {url: 'http://10.194.70.109:8000/pics/green.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+    bounce2=1;
+  }
+
+  else if (cap2<=67 && cap2>33)
+  image2 = {url: 'http://10.194.70.109:8000/pics/blue.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+  else 
+  image2 = {url: 'http://10.194.70.109:8000/pics/red.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+
+
+
+if (cap3>67)
+  {image3 = {url: 'http://10.194.70.109:8000/pics/green.png',
+        
+         scaledSize: new google.maps.Size(35, 35)
+    };
+    bounce3 =1;
+  }
+
+  else if (cap3<=67 && cap3>33)
+  image3 = {url: 'http://10.194.70.109:8000/pics/blue.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+  else 
+  image3 = {url: 'http://10.194.70.109:8000/pics/red.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+
+
+if (cap4>67)
+  {
+    image4 = {url: 'http://10.194.70.109:8000/pics/green.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+   bounce4 =1;
+  }
+
+  else if (cap4<=67 && cap4>33)
+  image4 = {url: 'http://10.194.70.109:8000/pics/blue.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+  else 
+  image4 = {url: 'http://10.194.70.109:8000/pics/red.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+
+
+
+if (cap5>67)
+  {
+    image5 = {url: 'http://10.194.70.109:8000/pics/green.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+    bounce5=1;
+  }
+
+  else if (cap5<=67 && cap5>33)
+  image5 = {url: 'http://10.194.70.109:8000/pics/blue.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+  else 
+  image5 = {url: 'http://10.194.70.109:8000/pics/red.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+
+
+if (cap6>67)
+  {
+    image6 = {url: 'http://10.194.70.109:8000/pics/green.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+    bounce6 =1;
+  }
+
+  else if (cap6<=67 && cap6>33)
+  image6 = {url: 'http://10.194.70.109:8000/pics/blue.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+  else 
+  image6 = {url: 'http://10.194.70.109:8000/pics/red.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+
+
+if (cap7>67)
+  {
+    image7 = {url: 'http://10.194.70.109:8000/pics/green.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+   bounce7 =1;
+  }
+
+  else if (cap7<=67 && cap7>33)
+  image7 = {url: 'http://10.194.70.109:8000/pics/blue.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+  else 
+  image7 = {url: 'http://10.194.70.109:8000/pics/red.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+
+    if (cap8>67)
+  {
+    image8 = {url: 'http://10.194.70.109:8000/pics/green.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+    bounce8 =1;
+  }
+
+  else if (cap8<=67 && cap8>33)
+  image8 = {url: 'http://10.194.70.109:8000/pics/blue.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+  else 
+  image8 = {url: 'http://10.194.70.109:8000/pics/red.png',
+         scaledSize: new google.maps.Size(35, 35)
+    };
+
+
+  // 
+  var marker1 = new google.maps.Marker({position: can1, map: map, label: "DPW", icon: image1});
+   var marker2 = new google.maps.Marker({position: can2, map: map, label: "DPW", icon: image2});
+    var marker3 = new google.maps.Marker({position: can3, map: map, label: "DPW", icon: image3});
+     var marker4 = new google.maps.Marker({position: can4, map: map, label: "DPW", icon: image4});
+      var marker5 = new google.maps.Marker({position: can5, map: map, label: "DPW", icon: image5});
+       var marker6 = new google.maps.Marker({position: can6, map: map, label: "DPW", icon: image6});
+        var marker7 = new google.maps.Marker({position: can7, map: map, label: "DPW", icon: image7});
+         var marker8 = new google.maps.Marker({position: can8, map: map, label: "DPW", icon: image8});
+
+
+
+   var infowindow1 = new google.maps.InfoWindow({
+          content: contentString1
+        });
+
+    marker1.addListener('mouseover', function() {
+          infowindow1.open(map, marker1);
+        });
+
+
+
+
+     var infowindow2 = new google.maps.InfoWindow({
+          content: contentString2
+        });
+
+    marker2.addListener('mouseover', function() {
+          infowindow2.open(map, marker2);
+        });
+
+
+
+
+   var infowindow3 = new google.maps.InfoWindow({
+          content: contentString3
+        });
+
+    marker3.addListener('mouseover', function() {
+          infowindow3.open(map, marker3);
+        });
+
+
+
+
+
+     var infowindow4 = new google.maps.InfoWindow({
+          content: contentString4
+        });
+
+    marker4.addListener('mouseover', function() {
+          infowindow4.open(map, marker4);
+        });
+
+
+
+
+   var infowindow5 = new google.maps.InfoWindow({
+          content: contentString5
+        });
+
+    marker5.addListener('mouseover', function() {
+          infowindow5.open(map, marker5);
+        });
+
+
+
+
+     var infowindow6 = new google.maps.InfoWindow({
+          content: contentString6
+        });
+
+    marker6.addListener('mouseover', function() {
+          infowindow6.open(map, marker6);
+        });
+
+
+
+
+   var infowindow7 = new google.maps.InfoWindow({
+          content: contentString7
+        });
+
+    marker7.addListener('mouseover', function() {
+          infowindow7.open(map, marker7);
+        });
+
+
+
+
+
+     var infowindow8 = new google.maps.InfoWindow({
+          content: contentString8
+        });
+
+    marker8.addListener('mouseover', function() {
+          infowindow8.open(map, marker8);
+        });
+
+
+  marker1.addListener('click', function() {
+          map.setZoom(8);
+          map.setCenter(marker1.getPosition());
+          end = marker1.getPosition();
+	  calcRoute();
+        });
+
+
+  marker2.addListener('click', function() {
+          map.setZoom(8);
+          map.setCenter(marker2.getPosition());
+          end = marker2.getPosition();
+    calcRoute();
+        });
+
+
+  marker3.addListener('click', function() {
+          map.setZoom(8);
+          map.setCenter(marker3.getPosition());
+          end = marker3.getPosition();
+    calcRoute();
+        });
+
+
+  marker4.addListener('click', function() {
+          map.setZoom(8);
+          map.setCenter(marker4.getPosition());
+          end = marker4.getPosition();
+    calcRoute();
+        });
+
+
+  marker5.addListener('click', function() {
+          map.setZoom(8);
+          map.setCenter(marker5.getPosition());
+          end = marker5.getPosition();
+    calcRoute();
+        });
+
+  marker6.addListener('click', function() {
+          map.setZoom(8);
+          map.setCenter(marker6.getPosition());
+          end = marker6.getPosition()
+    calcRoute();
+        });
+
+
+  marker7.addListener('click', function() {
+          map.setZoom(8);
+          map.setCenter(marker7.getPosition());
+          end = marker7.getPosition();
+    calcRoute();
+        });
+
+  marker8.addListener('click', function() {
+          map.setZoom(8);
+          map.setCenter(marker8.getPosition());
+          end = marker8.getPosition();
+    calcRoute();
+        });
+
+
+  if(bounce1) marker1.setAnimation(google.maps.Animation.BOUNCE);
+  if(bounce2) marker2.setAnimation(google.maps.Animation.BOUNCE);
+  if(bounce3) marker3.setAnimation(google.maps.Animation.BOUNCE);
+  if(bounce4) marker4.setAnimation(google.maps.Animation.BOUNCE);
+  if(bounce5) marker5.setAnimation(google.maps.Animation.BOUNCE);
+  if(bounce6) marker6.setAnimation(google.maps.Animation.BOUNCE);
+  if(bounce7) marker7.setAnimation(google.maps.Animation.BOUNCE);
+  if(bounce8) marker8.setAnimation(google.maps.Animation.BOUNCE);
+}
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=	AIzaSyCOgBO8EZVSkD6kPTajddf252aaaoVOZsk&callback=initMap"
+    async defer></script>
+  </body>
+</html>
